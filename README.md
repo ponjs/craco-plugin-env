@@ -26,11 +26,10 @@ module.exports = {
     {
       plugin: CracoEnvPlugin,
       options: {
-        path: __dirname,
-        vars: {},
-      },
-    },
-  ],
+        variables: {}
+      }
+    }
+  ]
 }
 ```
 
@@ -38,12 +37,9 @@ module.exports = {
 
 You can pass an `options` object to configure the plugin.
 
-- `options.path`
-  - _Default:_ root
-  - The directory from which `.env` files are loaded. Can be an absolute path, or a path relative to the project root.
-- `options.vars`
+- `options.variables`
   - _Default_: `{}`
-  - Custom environment variables. For more detailed env parsing rules, please refer to [the documentation of `dotenv`](https://github.com/motdotla/dotenv).
+  - Custom additional environment variables. For more detailed env parsing rules, please refer to [the documentation of `dotenv`](https://github.com/motdotla/dotenv).
 
 ## Mode
 
