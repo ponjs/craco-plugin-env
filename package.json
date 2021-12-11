@@ -1,0 +1,21 @@
+{
+  "name": "craco-plugin-env",
+  "description": "An environment plugin for craco",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ponjs/craco-plugin-env.git",
+  "keywords": [
+    "environment",
+    "craco",
+    "create-react-app"
+  ],
+  "author": "ponjs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ponjs/craco-plugin-env/issues"
+  },
+  "homepage": "https://github.com/ponjs/craco-plugin-env#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
