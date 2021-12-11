@@ -1,5 +1,9 @@
 ## Installation
 
+First, follow the [`craco` Installation Instructions](https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation) to install the `craco` package, create a `craco.config.js` file, and modify the scripts in your `package.json`.
+
+Then install `craco-plugin-env`:
+
 ```bash
 $ yarn add craco-plugin-env -D
 
@@ -10,9 +14,11 @@ $ npm i craco-plugin-env -D
 
 ## Usage
 
-在 `craco.config.js` 文件中添加插件。
+Add the plugin into your `craco.config.js`.
 
 ```js
+/* craco.config.js */
+
 const CracoEnvPlugin = require('craco-plugin-env')
 
 module.exports = {
@@ -30,27 +36,27 @@ module.exports = {
 
 ## Configuration
 
-您可以传递一个 `options` 对象来配置插件。
+You can pass an `options` object to configure the plugin.
 
 - `options.path`
   - _Default:_ root
-  - 用于加载 `.env` 文件的目录。可以是一个绝对路径，也可以是相对于项目根的路径。
+  - The directory from which `.env` files are loaded. Can be an absolute path, or a path relative to the project root.
 - `options.vars`
   - _Default_: `{}`
-  - 自定义环境变量。通过 `process.env` 获取。想要了解解析环境文件规则的细节，请参考 [dotenv](https://github.com/motdotla/dotenv)。
+  - Custom environment variables. For more detailed env parsing rules, please refer to the documentation of [dotenv](https://github.com/motdotla/dotenv).
 
 ## Mode
 
-你可以在你的项目根目录中放置下列文件来指定环境变量：
+You can specify env variables by placing the following files in your project root:
 
 ```
-.env                # 在所有的环境中被载入
-.env.local          # 在所有的环境中被载入，但会被 git 忽略
-.env.[mode]         # 只在指定的模式中被载入
-.env.[mode].local   # 只在指定的模式中被载入，但会被 git 忽略
+.env                # loaded in all cases
+.env.local          # loaded in all cases, ignored by git
+.env.[mode]         # only loaded in specified mode
+.env.[mode].local   # only loaded in specified mode, ignored by git
 ```
 
-你可以通过传递 `--mode` 选项参数为命令行覆写默认的模式。例如，如果你可以在构建命令中使用开发环境变量：
+You can overwrite the default mode used for a command by passing the `--mode` option flag. For example, if you want to use development variables in the build command:
 
 ```diff
 /* package.json */
@@ -62,4 +68,4 @@ module.exports = {
 }
 ```
 
-可参考 [Vue CLI](https://cli.vuejs.org/zh/guide/mode-and-env.html#模式)。
+You can refer to the documentation of [Vue CLI](https://cli.vuejs.org/guide/mode-and-env.html#modes-and-environment-variables).
