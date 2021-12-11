@@ -43,7 +43,7 @@ You can pass an `options` object to configure the plugin.
   - The directory from which `.env` files are loaded. Can be an absolute path, or a path relative to the project root.
 - `options.vars`
   - _Default_: `{}`
-  - Custom environment variables. For more detailed env parsing rules, please refer to the documentation of [dotenv](https://github.com/motdotla/dotenv).
+  - Custom environment variables. For more detailed env parsing rules, please refer to [the documentation of `dotenv`](https://github.com/motdotla/dotenv).
 
 ## Mode
 
@@ -68,4 +68,4 @@ You can overwrite the default mode used for a command by passing the `--mode` op
 }
 ```
 
-You can refer to the documentation of [Vue CLI](https://cli.vuejs.org/guide/mode-and-env.html#modes-and-environment-variables).
+You can refer to [the documentation of `Vue CLI`](https://cli.vuejs.org/guide/mode-and-env.html#modes-and-environment-variables).
