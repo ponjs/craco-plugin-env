@@ -29,18 +29,20 @@ function overrideCracoConfig({ cracoConfig, pluginOptions = {} }) {
   loadEnvironment(localPath)
   loadEnvironment(basePath)
 
-  const plugin = new webpack.EnvironmentPlugin(pluginOptions.variables)
+  if (pluginOptions.variables) {
+    const plugin = new webpack.EnvironmentPlugin(pluginOptions.variables)
 
-  if (cracoConfig.webpack) {
-    if (cracoConfig.webpack.plugins) {
-      const webpackPlugins = cracoConfig.webpack.plugins
-      ;(webpackPlugins.add || webpackPlugins).push(plugin)
+    if (cracoConfig.webpack) {
+      if (cracoConfig.webpack.plugins) {
+        const webpackPlugins = cracoConfig.webpack.plugins
+        ;(webpackPlugins.add || webpackPlugins).push(plugin)
+      } else {
+        cracoConfig.webpack.plugins = [plugin]
+      }
     } else {
-      cracoConfig.webpack.plugins = [plugin]
-    }
-  } else {
-    cracoConfig.webpack = {
-      plugins: [plugin]
+      cracoConfig.webpack = {
+        plugins: [plugin]
+      }
     }
   }
 
