@@ -5,7 +5,7 @@ const webpack = require('webpack')
 
 function getModeName() {
   const index = process.argv.indexOf('--mode')
-  return process.argv[index + 1] || ''
+  return index === -1 ? '' : process.argv[index + 1] || ''
 }
 
 function loadEnvironment(envPath) {
@@ -41,7 +41,7 @@ function overrideCracoConfig({ cracoConfig, pluginOptions = {} }) {
       }
     } else {
       cracoConfig.webpack = {
-        plugins: [plugin]
+        plugins: [plugin],
       }
     }
   }
@@ -50,5 +50,5 @@ function overrideCracoConfig({ cracoConfig, pluginOptions = {} }) {
 }
 
 module.exports = {
-  overrideCracoConfig
+  overrideCracoConfig,
 }
