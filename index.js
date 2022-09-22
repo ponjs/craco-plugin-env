@@ -20,17 +20,24 @@ function loadEnvironment(envPath) {
   }
 }
 
-function overrideCracoConfig({ cracoConfig, pluginOptions = {} }) {
-  const mode = getModeName()
+const defaultOptions = {
+  rootDir: process.cwd(),
+  mode: process.env.NODE_ENV,
+  variables: null,
+};
 
-  const basePath = path.resolve(process.cwd(), `.env${mode ? `.${mode}` : ''}`)
+function overrideCracoConfig({ cracoConfig, pluginOptions = {...defaultOptions} }) {
+  const options = {...defaultOptions, ...pluginOptions};
+  const mode = options.mode || getModeName();
+
+  const basePath = path.resolve(options.rootDir, `.env${mode ? `.${mode}` : ''}`)
   const localPath = `${basePath}.local`
 
   loadEnvironment(localPath)
   loadEnvironment(basePath)
 
-  if (pluginOptions.variables) {
-    const plugin = new webpack.EnvironmentPlugin(pluginOptions.variables)
+  if (options.variables) {
+    const plugin = new webpack.EnvironmentPlugin(options.variables)
 
     if (cracoConfig.webpack) {
       if (cracoConfig.webpack.plugins) {
