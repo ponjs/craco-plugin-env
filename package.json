@@ -1,7 +1,7 @@
 {
   "name": "craco-plugin-env",
   "description": "An environment plugin for craco",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "repository": "https://github.com/ponjs/craco-plugin-env.git",
   "keywords": [

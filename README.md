@@ -41,6 +41,10 @@ You can pass an `options` object to configure the plugin.
   - _Default_: `{}`
   - Custom additional environment variables. For more detailed env parsing rules, please refer to [the documentation of `dotenv`](https://github.com/motdotla/dotenv).
 
+- `options.envDir`
+  - _Default_: `process.cwd()`
+  - The directory from which `.env` files are loaded. Can be an absolute path, or a path relative to the project root.
+
 ## Mode
 
 You can specify env variables by placing the following files in your project root:

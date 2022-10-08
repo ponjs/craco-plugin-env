@@ -23,7 +23,13 @@ function loadEnvironment(envPath) {
 function overrideCracoConfig({ cracoConfig, pluginOptions = {} }) {
   const mode = getModeName()
 
-  const basePath = path.resolve(process.cwd(), `.env${mode ? `.${mode}` : ''}`)
+  const envDirOption = pluginOptions.envDir
+  const resolvedRoot = process.cwd()
+
+  const basePath = path.resolve(
+    envDirOption ? path.resolve(resolvedRoot, envDirOption) : resolvedRoot,
+    `.env${mode ? `.${mode}` : ''}`
+  )
   const localPath = `${basePath}.local`
 
   loadEnvironment(localPath)
