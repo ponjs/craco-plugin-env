@@ -37,11 +37,11 @@ module.exports = {
 
 You can pass an `options` object to configure the plugin.
 
-- `options.variables`
+- options.variables
   - _Default_: `{}`
   - Custom additional environment variables. For more detailed env parsing rules, please refer to [the documentation of `dotenv`](https://github.com/motdotla/dotenv).
 
-- `options.envDir`
+- options.envDir <sup>`1.0.5`</sup>
   - _Default_: `process.cwd()`
   - The directory from which `.env` files are loaded. Can be an absolute path, or a path relative to the project root.
 
